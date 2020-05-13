@@ -3,7 +3,11 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+
+    if (Client.urlChecker(formText) != true) {
+        alert('Invalid address to summarize!');
+        return;
+    }
 
     console.log("::: Form Submitted :::")
         //fetch('http://localhost:8080/test')
@@ -11,7 +15,6 @@ function handleSubmit(event) {
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             method: "POST",
             body: JSON.stringify({
@@ -35,7 +38,7 @@ function handleSubmit(event) {
                 //document.getElementById('results').appendChild(ps);
                 //ok document.getElementById('results').innerHTML = res.data
                 // document.getElementById('results').innerHTML = JSON.stringify(res.analysed)
-        })
+        }).catch(err => alert(err))
 }
 
 export { handleSubmit }

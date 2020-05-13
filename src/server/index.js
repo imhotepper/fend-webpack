@@ -51,7 +51,7 @@ app.post('/analyse', async(req, res) => {
     }, function(error, resp) {
         if (error) {
             console.log('error aylien: ' + error);
-            res.status(500).json({
+            return res.status(500).json({
                 err: error
             });
         }
