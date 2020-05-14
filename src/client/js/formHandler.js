@@ -5,12 +5,15 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
 
     if (Client.urlChecker(formText) != true) {
-        alert('Invalid address to summarize!');
+        alert('Invalid address to summarize!\nThe address should start with http:// or https://');
         return;
     }
 
     console.log("::: Form Submitted :::")
-        //fetch('http://localhost:8080/test')
+    const content = document.getElementById('results');
+    content.innerHTML = "Analysing, please wait ...";
+
+    //fetch('http://localhost:8080/test')
     fetch('http://localhost:8080/analyse', {
             credentials: 'same-origin',
             headers: {
@@ -30,15 +33,15 @@ function handleSubmit(event) {
                 p.innerHTML = element;
                 ps.push(p);
             });
-            const content = document.getElementById('results');
             content.innerHTML = "";
             ps.map(p => {
-                    content.appendChild(p);
-                })
-                //document.getElementById('results').appendChild(ps);
-                //ok document.getElementById('results').innerHTML = res.data
-                // document.getElementById('results').innerHTML = JSON.stringify(res.analysed)
-        }).catch(err => alert(err))
+                content.appendChild(p);
+            })
+        }).catch(err => {
+            content.innerHTML = "Ups, something went wrong!";
+
+            alert(err);
+        })
 }
 
 export { handleSubmit }
