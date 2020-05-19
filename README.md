@@ -33,6 +33,7 @@ The project can be started locally. In order to run it the following steps must 
 
 - use `npm install` or `yarn` in order to install dependencies
 - start the webpack-dev server and the express server using `npm run dev` or `yarn dev`
+- to execute the tests use `npm run test` or `yarn test` 
 
 ## Deploying
 
