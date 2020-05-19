@@ -27,6 +27,13 @@ The returned response has the following structure:
 
 At the server side level the number of sentences returned can be configured because this is a parameter of the aylien api.
 
+## Run locally 
+
+The project can be started locally. In order to run it the following steps must be executed:
+
+- use `npm install` or `yarn` in order to install dependencies
+- start the webpack-dev server and the express server using `npm run dev` or `yarn dev`
+
 ## Deploying
 
 ### WIP
