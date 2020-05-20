@@ -16,13 +16,13 @@
     <main>
         <section>
             <form class="" onsubmit="return Client.handleSubmit(event)">
-                <input id="name" type="text" name="input" value="" placeholder="Name" required>
-                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <input id="name" type="text" name="input" value="" placeholder="URL for the article" required>
+                <input type="submit" name="" value="summarize" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
             </form>
             <section>
 
                 <section>
-                    <strong>Here is your summary:</strong>
+                    <strong id="title"></strong>
                     <div id="results"></div>
                 </section>
     </main>

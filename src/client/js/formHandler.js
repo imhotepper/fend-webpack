@@ -12,7 +12,6 @@ async function getData(formUrl) {
     }).then(function(resp) {
         return resp.json();
     }).catch(function(err) {
-        alert(err);
         return;
     })
 }
@@ -30,16 +29,15 @@ async function handleSubmit(event) {
         return false;
     }
 
-    console.log("::: Form Submitted :::")
     const content = document.getElementById('results');
-    content.innerHTML = "Analysing, please wait ...";
-
+    const title = document.getElementById('title');
+    title.innerHTML = "Analysing, please wait ...";
+    content.innerHTML = "";
 
     const res = await getData(formText);
 
     if (!res) {
-        content.innerHTML = "Ups, something went wrong!";
-
+        title.innerHTML = "Ups, something went wrong!";
     } else {
         const ps = [];
         res.data.forEach(element => {
@@ -47,12 +45,11 @@ async function handleSubmit(event) {
             p.innerHTML = element;
             ps.push(p);
         });
-        content.innerHTML = "";
+        title.innerHTML = "Here is your summary:"
         ps.map(p => {
             content.appendChild(p);
         })
     }
-
 }
 
 
