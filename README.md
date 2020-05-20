@@ -31,12 +31,15 @@ At the server side level the number of sentences returned can be configured beca
 
 The project can be started locally. In order to run it the following steps must be executed:
 
+- create the .env file in the root of the project with the expected content
+```js
+API_ID=your_api_id
+API_KEY=your_api_key
+```
 - use `npm install` or `yarn` in order to install dependencies
-- start the webpack-dev server and the express server using `npm run dev` or `yarn dev`
+- start the webpack-dev server and the express server concurrently using `npm run dev` or `yarn dev`
 - to execute the tests use `npm run test` or `yarn test` 
 
 ## Deploying
+ Work In Progress
 
-### WIP
-
-A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
