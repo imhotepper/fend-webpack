@@ -34,6 +34,16 @@ async function handleSubmit(event) {
     title.innerHTML = "Analysing, please wait ...";
     content.innerHTML = "";
 
+    //if offline show some message
+    if (!navigator.onLine) {
+        title.innerHTML = "Offline! please try again when network connectivity is available.";
+        title.style.color = "red";
+        return;
+    } else {
+        title.style.color = null;
+    }
+
+
     const res = await getData(formText);
 
     if (!res) {
